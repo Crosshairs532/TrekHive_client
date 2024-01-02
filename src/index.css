@@ -1,0 +1,322 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.logo {
+  background-image: url('./assets/logo.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.img1 {
+  background-image: url('../src/assets/travel6.jpeg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
+  background-size: cover;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+
+}
+
+
+.container .slide .item {
+  width: 200px;
+  height: 300px;
+  position: absolute;
+  border-radius: 20px;
+  box-shadow: 2px 2px 10px 1px rgba(128, 128, 128, 0.432);
+  background-size: cover;
+  display: inline-block;
+  background-repeat: no-repeat;
+  transition: .5s;
+  background-position: center;
+  background-size: cover;
+  top: 55%;
+  z-index: 3;
+}
+
+@media (width<=425px) {
+  .container .slide .item {
+    width: 150px;
+    height: 200px;
+    top: 65%;
+  }
+}
+
+@media (426px< width <=768px) {
+  .container .slide .item {
+    width: 160px;
+    height: 200px;
+    top: 65%;
+  }
+}
+
+.slide .item .content {
+  display: none;
+}
+
+.slide .item:nth-child(2) .content {
+  display: block;
+  z-index: 4;
+}
+
+.slide .item:nth-child(1),
+.slide .item:nth-child(2) {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  border-radius: 0;
+  transform: translate(0, 0);
+  animation: bganimate 1s ease-in 1 forwards;
+}
+
+.slide .item:nth-child(2)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.812), rgba(0, 0, 0, 0.551), rgba(0, 0, 0, 0));
+}
+
+.slide .item:nth-child(3) {
+  left: 50%;
+  scale: 1.1;
+  transition: .6s;
+}
+
+.slide .item:nth-child(4) {
+  left: calc(50% + 220px);
+  transition: .6s;
+}
+
+.slide .item:nth-child(5) {
+  left: calc(50% + 440px);
+  transition: .6s;
+}
+
+
+.slide .item:nth-child(n+6) {
+  opacity: 0;
+  left: calc(50% + 660px);
+  transition: .5s;
+}
+
+
+.left:hover,
+.right:hover {
+  background: #ababab;
+  color: white;
+  transition: .6s;
+  transform: scale(1.2);
+}
+
+.slide .content {
+  position: absolute;
+  top: 40%;
+  left: 8%;
+}
+
+.slide .name {
+  opacity: 0;
+  animation: animate 1s ease-in .6s 1 forwards;
+
+}
+
+.slide .des {
+  opacity: 0;
+  animation: animate 1s ease-in .8s 1 forwards;
+
+}
+
+.slide .sbtn {
+  opacity: 0;
+  animation: animate 1s ease-in 1s 1 forwards;
+
+}
+
+
+@keyframes animate {
+  from {
+    opacity: 0;
+    filter: blur(50px);
+    transform: translate(0, 60px);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translate(0);
+  }
+}
+
+@keyframes bganimate {
+  from {
+    filter: blur(10px);
+  }
+
+  to {
+    filter: blur(0);
+  }
+
+
+}
+
+/* login sign button design  */
+.login-btn {
+  background-color: aliceblue;
+  color: black;
+  position: relative;
+  overflow: hidden;
+  transition: .4s ease-in-out;
+}
+
+.login-btn::after {
+  content: "";
+  width: 105%;
+  height: 30px;
+  position: absolute;
+  background-color: black;
+  bottom: -20px;
+  border-radius: 50%;
+  left: 0;
+  transition: .4s ease-in-out;
+  z-index: 5;
+}
+
+.login-btn:hover::after {
+  height: 100%;
+  border-radius: 0;
+  bottom: 0;
+  transition: .4s ease-in-out;
+  z-index: 5;
+}
+
+.login-btn:hover,
+.login-btn:hover .log-color {
+  color: #efeff9;
+}
+
+
+.signin-btn {
+  background-color: aliceblue;
+  color: black;
+  position: relative;
+  outline-color: crimson;
+  overflow: hidden;
+  transition: .4s ease-in-out;
+}
+
+.signin-btn::after {
+  content: "";
+  width: 105%;
+  height: 30px;
+  position: absolute;
+  background-color: black;
+  bottom: -20px;
+  border-radius: 50%;
+  left: 0;
+  transition: .4s ease-in-out;
+  z-index: 5;
+}
+
+.signin-btn:hover::after {
+  height: 100%;
+  border-radius: 0;
+  bottom: 0;
+  transition: .4s ease-in-out;
+  z-index: 5;
+}
+
+.signin-btn:hover,
+.signin-btn:hover .log-color {
+  color: #efeff9;
+}
+
+
+.nav-item::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background-color: azure;
+  transform: scale(0);
+  transition: .4s ease-in-out;
+}
+
+.nav-item {
+  color: #efeff9;
+  transition: .6s ease-in-out;
+}
+
+.nav-item:hover::after {
+  transform: scaleX(.7);
+  transition: .4s ease-in-out;
+}
+
+.nav-item:hover {
+  color: #8a8548ea;
+  transition: .6s ease-in-out;
+}
+
+.loginpic {
+  background-image: url('../src/assets/loginpic.jpeg'), linear-gradient(to top, rgba(0, 0, 0, 0.815), rgba(0, 0, 0, 0.059));
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-blend-mode: overlay;
+}
+
+.text {
+  background-clip: text;
+  color: transparent;
+}
+
+.signTrek {
+  padding: 2px 10px 2px 10px;
+}
+
+.signTrek::after {
+  content: "";
+  bottom: -1px;
+  transform: rotate(180deg);
+  right: -1px;
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  border-top: 4px solid rgb(234, 174, 96);
+  border-left: 4px solid;
+  transition: all .8s;
+
+}
+
+.signTrek::before {
+  content: "";
+  top: -1px;
+  left: -1px;
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  border-top: 4px solid rgb(234, 174, 96);
+  border-left: 4px solid;
+  transition: all .8s;
+
+
+}
