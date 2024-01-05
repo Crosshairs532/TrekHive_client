@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { ThreeDots } from "react-loader-spinner";
 import { useParams } from "react-router-dom";
 
 const PackageDetails = () => {
@@ -14,7 +15,18 @@ const PackageDetails = () => {
     })
 
     if (!isFetched) {
-
+        return <div className=" min-h-screen w-full">
+            <ThreeDots
+                visible={true}
+                height="80"
+                width="80"
+                color="#4fa94d"
+                radius="9"
+                ariaLabel="three-dots-loading"
+                wrapperStyle={{}}
+                wrapperClass=""
+            />
+        </div>
 
     }
     return (
