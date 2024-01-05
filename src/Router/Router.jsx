@@ -4,6 +4,7 @@ import Layout from "../Layout/Layout";
 import Login from "../Pages/Login/Login";
 import Registration from "../Pages/Registration/Registration";
 import Dashboard from "../Pages/Dashboard/Dashboard";
+import PackageDetails from "../Pages/Details/PackageDetails";
 
 const router = createBrowserRouter([
     {
@@ -13,7 +14,13 @@ const router = createBrowserRouter([
             {
                 index: true,
                 element: <Home></Home>
+            },
+
+            {
+                path: '/ourPackages/details/:id',
+                element: <PackageDetails></PackageDetails>
             }
+
 
         ]
     },

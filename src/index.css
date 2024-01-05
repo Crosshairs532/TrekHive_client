@@ -317,6 +317,62 @@
   border-top: 4px solid rgb(234, 174, 96);
   border-left: 4px solid;
   transition: all .8s;
+}
 
+.shade::after,
+.shade::before {
+  content: '';
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  z-index: 10;
+  /* border: 2px solid red; */
+}
 
+.shade::before {
+  background-image: linear-gradient(to top, #011621, #00253914);
+  top: -100px;
+
+}
+
+/* top: -90px; */
+/* top: -20px; */
+.shade::after {
+  background-image: linear-gradient(to bottom, #011621, #011621c8, #01162162, #00253902);
+
+  top: -1px;
+
+}
+
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  z-index: 100;
+  background: #dddde0;
+  transform-origin: 0%;
+}
+
+.tourism {
+  background-image: linear-gradient(90deg, #011621, transparent);
+  background-clip: text;
+  color: transparent;
+  -webkit-background-clip: text;
+  animation: reveal both linear;
+  animation-timeline: view();
+  animation-range: entry 50% cover 50%;
+  background-size: 200%;
+  background-repeat: no-repeat;
+}
+
+@keyframes reveal {
+  from {
+    background-position-x: 200%;
+  }
+
+  to {
+    background-position-x: 0%;
+  }
 }
