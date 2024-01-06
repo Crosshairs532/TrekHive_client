@@ -13,13 +13,13 @@ const Layout = () => {
     return (
         <div>
             <motion.div className="progress-bar" style={{ scaleX }} />
-            <div className=" fixed top-0 z-20">
+            <div className=" static top-0 z-20">
                 <NavBar></NavBar>
             </div>
             {/* <div>
                 <Slider></Slider>
             </div> */}
-            <div className=" relative  z-10 border-deep-orange-700 min-h-screen">
+            <div className=" min-h-screen">
                 <Outlet></Outlet>
             </div>
             <div>
