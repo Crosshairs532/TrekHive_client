@@ -263,7 +263,7 @@
 }
 
 .nav-item {
-  color: #efeff9;
+  color: #011621;
   transition: .6s ease-in-out;
 }
 
@@ -385,4 +385,47 @@ label,
 
 .swal2-popup {
   backdrop-filter: blur(5px);
+}
+
+.videos {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.636),
+      /* Adjust the alpha (transparency) value as needed */
+      transparent
+      /* You can also customize the color stops */
+    );
+}
+
+.tourisms {
+  background-image: linear-gradient(90deg, #dddde0, transparent);
+  background-clip: text;
+  color: transparent;
+  -webkit-background-clip: text;
+  animation: reveal both linear;
+  animation-timeline: view();
+  animation-range: entry 50% cover 50%;
+  /* animation-range-start: 2vh;
+  animation-range-end: 100vh; */
+  background-size: 200%;
+  background-repeat: no-repeat;
+}
+
+@keyframes reveal {
+  from {
+    background-position-x: 200%;
+  }
+
+  to {
+    background-position-x: 0%;
+  }
 }

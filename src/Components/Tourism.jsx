@@ -5,6 +5,7 @@ import { TabContext, TabList } from '@mui/lab';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import Package from './Package';
+import OverView from './OverView';
 const Tourism = () => {
     const [value, setValue] = useState('overview');
     const navigate = useNavigate();
@@ -35,7 +36,7 @@ const Tourism = () => {
                         </TabList>
                     </div>
                     <TabPanel value="overview">
-                        <h1>overview</h1>
+                        <OverView></OverView>
                     </TabPanel>
                     <TabPanel value="packages">
                         <Package></Package>
