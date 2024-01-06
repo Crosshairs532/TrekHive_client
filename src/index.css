@@ -377,12 +377,12 @@
   }
 }
 
-/* image */
-.image-input {
-  display: none;
-}
 
 label,
 .select {
   color: #074464bb;
+}
+
+.swal2-popup {
+  backdrop-filter: blur(5px);
 }

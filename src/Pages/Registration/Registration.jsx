@@ -54,7 +54,7 @@ const Registration = () => {
                     console.log(res.user);
                     updateUserProfile(data?.name, photo)
                         .then(async () => {
-                            const res = await axios.post('/user', userInfo)
+                            const res = await axios.post('http://localhost:4000/users', userInfo)
                             if (res.data.insertedId) {
                                 toast.success('successful', {
                                     id: toastId,

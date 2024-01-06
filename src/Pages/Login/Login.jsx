@@ -57,7 +57,7 @@ const Login = () => {
                 title: 'Login successful',
                 text: `${res?.user?.displayName}`,
             });
-            // navigate(location.state ? location.state : '/')
+            navigate(location.state ? location.state : '/')
         } catch (error) {
             Swal.close();
             Swal.fire({
