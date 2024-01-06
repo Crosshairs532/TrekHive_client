@@ -340,7 +340,6 @@
 /* top: -20px; */
 .shade::after {
   background-image: linear-gradient(to bottom, #011621, #011621c8, #01162162, #00253902);
-
   top: -1px;
 
 }
@@ -376,4 +375,14 @@
   to {
     background-position-x: 0%;
   }
+}
+
+/* image */
+.image-input {
+  display: none;
+}
+
+label,
+.select {
+  color: #074464bb;
 }

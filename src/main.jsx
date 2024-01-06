@@ -10,7 +10,6 @@ import {
   QueryClientProvider
 } from '@tanstack/react-query'
 
-
 const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -20,6 +19,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Toaster />
         <RouterProvider router={router}></RouterProvider>
       </QueryClientProvider>
+
     </Authprovider>
   </React.StrictMode>,
 )

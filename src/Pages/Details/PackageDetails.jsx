@@ -49,7 +49,7 @@ const PackageDetails = () => {
                     </div>
                 </div>
 
-                <div className=" grid font-sans grid-1 pt-11 gap-x-3 place-items-center lg:grid-cols-12">
+                <div className=" grid font-sans grid-cols-1 pt-11 gap-y-4 lg:gap-x-3 place-items-center lg:grid-cols-12">
                     <div className=" p-2  w-full  col-span-8 ">
                         <h1 className=" text-xl md:text-2xl lg:text-3xl font-syne font-bold">{Detailed[0]?.title}</h1>
                         <div className=" flex items-center gap-x-5 mt-2">
@@ -131,8 +131,8 @@ const PackageDetails = () => {
 
                         </ul>
                     </div>
-                    <div className="   rounded-lg bg-white shadow-xl w-full col-span-4  ">
-                        <BookingForm></BookingForm>
+                    <div className=" rounded-2xl w-full bg-white shadow-2xl pt-2 col-span-4  ">
+                        <BookingForm price={Detailed[0]?.price}></BookingForm>
                     </div>
                 </div>
 
