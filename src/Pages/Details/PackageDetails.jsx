@@ -1,18 +1,23 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
+// import axios from "axios";
 import { GiHiking } from "react-icons/gi";
 
 import { ThreeDots } from "react-loader-spinner";
 import { useParams } from "react-router-dom";
 import BookingForm from "../../Components/BookingForm";
+import TourGuides from "../../Components/TourGuides";
+import AxiosPublic from "../../Axios/AxiosPublic";
+// import AxiosSecure from "../../Axios/AxiosSecure";
 
 const PackageDetails = () => {
     const param = useParams();
+    const axiosPublic = AxiosPublic();
+    // const axiosSecure = AxiosSecure();
     console.log(param);
     const { data: Detailed = [], isFetched } = useQuery({
         queryKey: ['singlePackage'],
         queryFn: async () => {
-            const res = await axios.get(`http://localhost:4000/packages?id=${param?.id}`);
+            const res = await axiosPublic.get(`/packages?id=${param?.id}`);
             return res.data;
         }
     })
@@ -139,8 +144,7 @@ const PackageDetails = () => {
             </div>
             <div>
                 <h1 className=" font-syne text-5xl font-bold text-center">Tour Guides</h1>
-
-
+                <TourGuides></TourGuides>
             </div>
         </div >
     );

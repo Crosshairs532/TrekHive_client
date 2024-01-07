@@ -36,11 +36,10 @@ const Login = () => {
     const { SignIn, GoogleSignIn } = UseAuth();
     const { register, handleSubmit, formState: { errors } } = useForm();
     const goTo = useNavigate();
-
-    const onSubmit = async (data) => {
+    const onSubmit = (data) => {
         const userInfo = { email: data?.email }
         console.log(userInfo);
-        SignIn(data?.email, data?.password)
+
         try {
             Swal.fire({
                 title: 'Logging in...',
@@ -50,14 +49,27 @@ const Login = () => {
                     Swal.showLoading();
                 },
             });
-            const res = await SignIn(data?.email, data?.password);
-            Swal.close();
-            Swal.fire({
-                icon: 'success',
-                title: 'Login successful',
-                text: `${res?.user?.displayName}`,
-            });
-            navigate(location.state ? location.state : '/')
+            // SignIn(data?.email, data?.password)
+            SignIn(data?.email, data?.password)
+                .then(res => {
+                    Swal.close();
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Login successful',
+                        text: `${res?.user?.displayName}`,
+                    });
+                    navigate(location.state ? location.state : '/')
+                })
+                .catch(err => {
+                    console.log(err.message);
+                    Swal.close();
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Login failed. Please check your credentials.',
+                    });
+                })
+
         } catch (error) {
             Swal.close();
             Swal.fire({

@@ -17,6 +17,7 @@ import axios from 'axios';
 import { FcGoogle } from "react-icons/fc";
 import UseAuth from '../../Hooks/UseAuth';
 import toast from 'react-hot-toast';
+import AxiosPublic from '../../Axios/AxiosPublic';
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 function Copyright(props) {
@@ -32,6 +33,7 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 const Registration = () => {
     const navigate = useNavigate();
+    const axiosPublic = AxiosPublic();
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { GoogleSignIn, SignUp, logOut, updateUserProfile } = UseAuth();
     const goTo = useNavigate();
@@ -47,14 +49,14 @@ const Registration = () => {
         console.log(res.data.data, "hi");
         const photo = res.data?.data?.display_url;
         if (res.data?.data?.display_url) {
-            const userInfo = { name: data?.name, email: data?.email, image: res.data?.data?.display_url, role: 'user', badge: 'bronze', all_badge: ['bronze'] }
+            const userInfo = { name: data?.name, email: data?.email, image: res.data?.data?.display_url, role: 'tourist' }
             console.log(userInfo);
             SignUp(data?.email, data?.password)
                 .then(res => {
                     console.log(res.user);
                     updateUserProfile(data?.name, photo)
                         .then(async () => {
-                            const res = await axios.post('http://localhost:4000/users', userInfo)
+                            const res = await axiosPublic.post('http://localhost:4000/users', userInfo)
                             if (res.data.insertedId) {
                                 toast.success('successful', {
                                     id: toastId,

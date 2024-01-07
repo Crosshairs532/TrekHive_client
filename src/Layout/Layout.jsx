@@ -16,9 +16,7 @@ const Layout = () => {
             <div className=" static top-0 z-20">
                 <NavBar></NavBar>
             </div>
-            {/* <div>
-                <Slider></Slider>
-            </div> */}
+
             <div className=" min-h-screen">
                 <Outlet></Outlet>
             </div>

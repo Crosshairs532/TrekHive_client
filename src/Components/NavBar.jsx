@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
 import { GiAxeSwing } from "react-icons/gi";
 import {
@@ -8,13 +9,14 @@ import {
     MobileNav,
 
 } from "@material-tailwind/react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import UseAuth from "../Hooks/UseAuth";
 import Swal from "sweetalert2";
 
 export function NavBar() {
     const { user, logOut } = UseAuth();
     const [openNav, setOpenNav] = useState(false);
+    const Goto = useNavigate();
 
     useEffect(() => {
         window.addEventListener(
@@ -71,23 +73,24 @@ export function NavBar() {
 
 
     const handleLogout = () => {
-        Swal.fire({
-            title: 'Logging out...',
-            allowOutsideClick: false,
-            showConfirmButton: false,
-            willOpen: () => {
-                Swal.showLoading();
-            },
-        });
+        // Swal.fire({
+        //     title: 'Logging out...',
+        //     allowOutsideClick: false,
+        //     showConfirmButton: false,
+        //     willOpen: () => {
+        //         Swal.showLoading();
+        //     },
+        // });
         logOut()
-            .then(res => {
+            .then((res) => {
+
                 Swal.close();
                 Swal.fire({
                     icon: 'success',
                     title: 'Logged out successfully',
                 });
+                Goto('/')
             })
-
     }
 
     return (
@@ -113,7 +116,7 @@ export function NavBar() {
                                     </div>
                                     <ul tabIndex={0} className="menu  menu-sm text-[black] dropdown-content mt-3 z-[1] p-2 shadow  backdrop-blur-sm bg-[#ffffff42] rounded-box w-52">
 
-                                        <li><a href="">Dashboard</a></li>
+                                        <Link to={'/dashboard'}> <li>Dashboard</li></Link>
                                         <li onClick={handleLogout} ><a>Logout</a></li>
                                         <li><p>Email:{user?.email}</p></li>
                                     </ul>
@@ -180,7 +183,7 @@ export function NavBar() {
                 <MobileNav className="" open={openNav}>
                     {navList}
                     <ul>
-                        <li className=" p-1 font-syne font-bold text-[#efeff9] "><a href="">Dashboard</a></li>
+                        <Link to={'/dashboard'}> <li>Dashboard</li></Link>
                     </ul>
                     {
                         user ?
