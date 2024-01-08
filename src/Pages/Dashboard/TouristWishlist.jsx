@@ -4,12 +4,12 @@ import AxiosSecure from "../../Axios/AxiosSecure";
 import Loaading from "../../Loading/Loaading";
 import { IoTrashBinSharp } from "react-icons/io5";
 import { Link } from "react-router-dom";
-
+import toast from 'react-hot-toast';
 
 const TouristWishlist = () => {
     const { user, isLoading } = UseAuth();
     const axiosSecure = AxiosSecure();
-    const { data, isFetched } = useQuery({
+    const { data, isFetched, refetch } = useQuery({
         queryKey: ['bookings'],
         queryFn: async () => {
             const res = await axiosSecure.get(`/wishlist?email=${user?.email}`);
@@ -18,6 +18,14 @@ const TouristWishlist = () => {
     })
     if (!isFetched || isLoading) {
         return <Loaading></Loaading>
+    }
+    const handleDelete = async (id) => {
+        const res = await axiosSecure.delete(`/wishlist?id=${id}`);
+        if (res.data.deletedCount > 0) {
+            toast.success("Deleted");
+            refetch();
+        }
+
     }
 
     return (
@@ -48,7 +56,7 @@ const TouristWishlist = () => {
                                     <td>{item.title}</td>
                                     <td>{item.tourType}</td>
                                     <td>{item.tourPrice}</td>
-                                    <td><button className=" btn text-red-400 bg-transparent"><IoTrashBinSharp /></button></td>
+                                    <td><button onClick={() => handleDelete(item._id)} className=" btn text-red-400 bg-transparent"><IoTrashBinSharp /></button></td>
                                     <td><Link to={`/ourPackages/details/${item?.id}`}><button>view details</button></Link></td>
                                 </tr>
                             ))
