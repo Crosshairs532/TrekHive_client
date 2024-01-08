@@ -15,7 +15,7 @@ import moment from 'moment'
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
-const BookingForm = ({ price }) => {
+const BookingForm = ({ price, packageName }) => {
     const [date, setDate] = useState('');
     const todayDate = moment().format('YYYY-MM-DD');
     console.log(todayDate);
@@ -54,7 +54,6 @@ const BookingForm = ({ price }) => {
                 if (result.isConfirmed) {
 
                     return GoTo('/login', { state: location.pathname, replace: true });
-
                 }
             });
         }
@@ -67,7 +66,8 @@ const BookingForm = ({ price }) => {
         })
         const photo = res.data.data.display_url;
         console.log(photo);
-        const Booking = { TouristName: data.TouristName, TouristEmail: data.TouristEmail, guide: data.guide.value, TouristImage: photo, Date: date ? date : todayDate, TourPrice: data.Price }
+        const Booking = { TouristName: data.TouristName, TouristEmail: data.TouristEmail, guide: data.guide.value, TouristImage: photo, Date: date ? date : todayDate, TourPrice: data.Price, status: 'In Review', TourPackage: packageName, TourGuide: data.guide.value }
+        console.log(Booking);
         if (photo) {
             const res = await axios.post('http://localhost:4000/booking', Booking);
             if (res.data.insertedId) {
@@ -100,7 +100,6 @@ const BookingForm = ({ price }) => {
                             control={control}
                             rules={{ required: 'This field is required' }}
                             render={({ field }) => (
-
                                 <Select
                                     defaultValue={{ label: 'Choose Your Tour guide' }}
                                     {...field}

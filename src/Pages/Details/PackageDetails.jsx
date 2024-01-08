@@ -12,7 +12,7 @@ import AxiosPublic from "../../Axios/AxiosPublic";
 const PackageDetails = () => {
     const param = useParams();
     const axiosPublic = AxiosPublic();
-    // const axiosSecure = AxiosSecure();
+
     console.log(param);
     const { data: Detailed = [], isFetched } = useQuery({
         queryKey: ['singlePackage'],
@@ -37,7 +37,7 @@ const PackageDetails = () => {
         </div>
 
     }
-    console.log(Detailed[0]?.title);
+    console.log(Detailed);
     return (
         <div className=" min-h-screen md:max-w-2xl max-w-sm lg:max-w-screen-2xl  mx-auto">
             <div className=" min-h-screen pt-[150px]">
@@ -136,7 +136,7 @@ const PackageDetails = () => {
                         </ul>
                     </div>
                     <div className=" rounded-2xl w-full bg-white shadow-2xl pt-2 col-span-4  ">
-                        <BookingForm price={Detailed[0]?.price}></BookingForm>
+                        <BookingForm packageName={Detailed[0]?.title} price={Detailed[0]?.price}></BookingForm>
                     </div>
 
                 </div>

@@ -6,6 +6,10 @@ import Registration from "../Pages/Registration/Registration";
 
 import PackageDetails from "../Pages/Details/PackageDetails";
 import Dashboard from "../Pages/Dashboard/Dashboard";
+import TouristProfile from "../Pages/Dashboard/TouristProfile";
+import TouristWishlist from "../Pages/Dashboard/TouristWishlist";
+import TouristBookings from '../Pages/Dashboard/TouristBookings';
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -35,7 +39,26 @@ const router = createBrowserRouter([
     },
     {
         path: '/dashboard',
-        element: <Dashboard></Dashboard>
+        element: <Dashboard></Dashboard>,
+        children: [
+            // tourist
+            {
+                path: '/dashboard/profile',
+                element: <PrivateRoute><TouristProfile></TouristProfile></PrivateRoute>
+            },
+            {
+                path: '/dashboard/bookings',
+                element: <PrivateRoute><TouristBookings></TouristBookings></PrivateRoute>
+            },
+            {
+                path: '/dashboard/wishlist',
+                element: <PrivateRoute><TouristWishlist></TouristWishlist></PrivateRoute>
+            }
+
+
+            // admin
+
+        ]
     }
 ]);
 

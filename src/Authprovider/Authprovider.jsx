@@ -33,7 +33,7 @@ const Authprovider = ({ children }) => {
             }
             else {
                 localStorage.removeItem('token')
-                setLoading(true)
+                // setLoading(true)
             }
         })
         return () => {

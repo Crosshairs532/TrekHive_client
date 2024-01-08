@@ -10,11 +10,25 @@ import {
 } from "@material-tailwind/react";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { Link } from "react-router-dom";
+import AxiosPublic from '../Axios/AxiosPublic';
+import toast from 'react-hot-toast';
+import UseAuth from "../Hooks/UseAuth";
+import { IoTrashBinSharp } from "react-icons/io5";
+
 
 const Cards = ({ image, title, tourType, price, id }) => {
-
+    const axiosPublic = AxiosPublic();
+    const { user } = UseAuth();
     const handleWishist = () => {
-        // 
+        const wish = { title: title, tourType: tourType, tourPrice: price, email: user?.email, id: id }
+        console.log(wish);
+        axiosPublic.post('/wishlist', wish)
+            .then(res => {
+                console.log(res);
+                if (res.data.insertedId) {
+                    toast.success("added to your wishlist")
+                }
+            })
     }
     return (
         <Card className="mt-6 w-[90%] flex justify-around h-[400px]">
