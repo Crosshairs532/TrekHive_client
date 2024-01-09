@@ -27,6 +27,7 @@ const TouristWishlist = () => {
         }
 
     }
+    console.log(data);
 
     return (
         <div className=' mt-[50px]'>
@@ -36,7 +37,7 @@ const TouristWishlist = () => {
                     {/* head */}
                     <thead className=' bg-[#0116214f] backdrop-blur-3xl '>
                         <tr>
-                            <th></th>
+                            <th>#</th>
                             <th className=''>Package Name</th>
                             <th>Tour Guide Name</th>
                             <th>Tour Date</th>
@@ -49,18 +50,35 @@ const TouristWishlist = () => {
                     </thead>
                     <tbody>
                         {
-
-                            data?.map((item, idx) => (
-                                <tr key={idx}>
-                                    <th>{idx + 1}</th>
-                                    <td>{item.title}</td>
-                                    <td>{item.tourType}</td>
-                                    <td>{item.tourPrice}</td>
-                                    <td><button onClick={() => handleDelete(item._id)} className=" btn text-red-400 bg-transparent"><IoTrashBinSharp /></button></td>
-                                    <td><Link to={`/ourPackages/details/${item?.id}`}><button>view details</button></Link></td>
+                            data.length > 0 ? (
+                                data?.map((item, idx) => (
+                                    <tr key={idx}>
+                                        <th>{idx + 1}</th>
+                                        <td>{item.title}</td>
+                                        <td>{item.tourType}</td>
+                                        <td>{item.tourPrice}</td>
+                                        <td>
+                                            <button onClick={() => handleDelete(item._id)} className="btn text-red-400 bg-transparent">
+                                                <IoTrashBinSharp />
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <Link to={`/ourPackages/details/${item._id}`}>
+                                                <button>View Details</button>
+                                            </Link>
+                                        </td>
+                                    </tr>
+                                ))
+                            ) : (
+                                <tr>
+                                    <td>
+                                        <h1 className=" text-center font-syne text-gray-400 text-lg
+                                        ">No Data Available</h1>
+                                    </td>
                                 </tr>
-                            ))
+                            )
                         }
+
                     </tbody>
                 </table >
             </div >

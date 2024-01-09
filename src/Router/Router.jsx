@@ -3,13 +3,17 @@ import Home from "../Pages/Home/Home";
 import Layout from "../Layout/Layout";
 import Login from "../Pages/Login/Login";
 import Registration from "../Pages/Registration/Registration";
-
 import PackageDetails from "../Pages/Details/PackageDetails";
 import Dashboard from "../Pages/Dashboard/Dashboard";
-import TouristProfile from "../Pages/Dashboard/TouristProfile";
+import Profile from '../Pages/Dashboard/Profile';
 import TouristWishlist from "../Pages/Dashboard/TouristWishlist";
 import TouristBookings from '../Pages/Dashboard/TouristBookings';
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import AdminPrivate from "../PrivateRoute/AdminPrivate";
+import AddPackage from "../Pages/Dashboard/Admin/AddPackage";
+import ManageUsers from "../Pages/Dashboard/Admin/ManageUsers";
+// import Allpackges from "../Pages/AllPackages/Allpackges";
+
 
 const router = createBrowserRouter([
     {
@@ -24,7 +28,11 @@ const router = createBrowserRouter([
             {
                 path: '/ourPackages/details/:id',
                 element: <PackageDetails></PackageDetails>
-            }
+            },
+            // {
+            //     path: '/allpackges',
+            //     element: <Allpackges></Allpackges>
+            // }
         ]
     },
     {
@@ -44,7 +52,7 @@ const router = createBrowserRouter([
             // tourist
             {
                 path: '/dashboard/profile',
-                element: <PrivateRoute><TouristProfile></TouristProfile></PrivateRoute>
+                element: <Profile></Profile>
             },
             {
                 path: '/dashboard/bookings',
@@ -54,9 +62,16 @@ const router = createBrowserRouter([
                 path: '/dashboard/wishlist',
                 element: <PrivateRoute><TouristWishlist></TouristWishlist></PrivateRoute>
             }
-
-
             // admin
+            ,
+            {
+                path: '/dashboard/admin/addPackage',
+                element: <AdminPrivate><AddPackage></AddPackage></AdminPrivate>
+            },
+            {
+                path: '/dashboard/admin/users',
+                element: <AdminPrivate><ManageUsers></ManageUsers></AdminPrivate>
+            }
 
         ]
     }

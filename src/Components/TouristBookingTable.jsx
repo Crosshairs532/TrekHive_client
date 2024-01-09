@@ -14,7 +14,7 @@ const TouristBookingTable = ({ data }) => {
                     {/* head */}
                     <thead className=' bg-[#0116214f] backdrop-blur-3xl '>
                         <tr>
-                            <th></th>
+                            <th>#</th>
                             <th className=''>Package Name</th>
                             <th>Tour Guide Name</th>
                             <th>Tour Date</th>
@@ -48,11 +48,8 @@ const TouristBookingTable = ({ data }) => {
                                     }
                                     <td><button className=' btn'>Apply</button></td>
                                 </tr>
-
                             ))
-
                         }
-
 
                     </tbody>
                 </table >

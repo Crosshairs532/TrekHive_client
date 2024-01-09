@@ -428,3 +428,51 @@ label,
     background-position-x: 0%;
   }
 }
+
+.guide:after {
+  content: '';
+  width: 100%;
+  height: .5px;
+  top: 50%;
+  margin-left: 10px;
+  position: absolute;
+  background-color: black;
+
+}
+
+
+.hi {
+  width: 400px !important;
+  border: 1px solid black;
+  background-color: #f1f3fa;
+}
+
+.guide-more:after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: #011621;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: scale(0);
+  transition: all .4s ease-in-out;
+
+}
+
+.guide-more:hover::after {
+  color: #ababab;
+  transform: scaleX(1);
+
+}
+
+.guide-more {
+
+  color: #ababab;
+  transition: all .4s ease-in-out;
+}
+
+.guide-more:hover {
+  transition: all .4s ease-in-out;
+  color: #555454;
+}

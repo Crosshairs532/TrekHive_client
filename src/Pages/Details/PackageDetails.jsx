@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-// import axios from "axios";
+
 import { GiHiking } from "react-icons/gi";
 
 import { ThreeDots } from "react-loader-spinner";
@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 import BookingForm from "../../Components/BookingForm";
 import TourGuides from "../../Components/TourGuides";
 import AxiosPublic from "../../Axios/AxiosPublic";
-// import AxiosSecure from "../../Axios/AxiosSecure";
+
 
 const PackageDetails = () => {
     const param = useParams();
@@ -43,17 +43,17 @@ const PackageDetails = () => {
             <div className=" min-h-screen pt-[150px]">
                 <div className="image-section w-full h-[300px] grid grid-cols-12 gap-2 ">
                     <div className=" col-span-8">
-                        <img className=" w-full h-[51%] object-cover rounded-xl" src={Detailed[0]?.image} alt="" />
+                        <img className=" w-full h-[51%] object-cover rounded-xl" src={Detailed[0]?.image[0]} alt="" />
                     </div>
                     <div className=" col-span-4">
                         <img className=" w-full h-[25%] rounded-xl col-span-4 object-cover  " src={Detailed[0]?.image} alt="" />
                         <div className=" col-span-2 mt-2 flex gap-1">
-                            <img className=" w-[50%] object-cover rounded-xl " src={Detailed[0]?.image} alt="" />
-                            <img className=" w-[50%] object-cover rounded-xl " src={Detailed[0]?.image} alt="" />
+                            <img className=" w-[50%] object-cover rounded-xl " src={Detailed[0]?.image[1]} alt="" />
+                            <img className=" w-[50%] object-cover rounded-xl " src={Detailed[0]?.image[1]} alt="" />
                         </div>
                     </div>
                 </div>
-                <div className=" grid font-sans grid-cols-1 pt-11 gap-y-4 lg:gap-x-3 place-items-center lg:grid-cols-12">
+                <div className=" grid font-sans grid-cols-1 mt-11 gap-y-4 lg:gap-x-3 place-items-center lg:grid-cols-12">
                     <div className=" p-2  w-full  col-span-8 ">
                         <h1 className=" text-xl md:text-2xl lg:text-3xl font-syne font-bold">{Detailed[0]?.title}</h1>
                         <div className=" flex items-center gap-x-5 mt-2">

@@ -12,10 +12,12 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import UseAuth from "../Hooks/UseAuth";
 import Swal from "sweetalert2";
+import UseAdmin from "../Hooks/UseAdmin";
 
 export function NavBar() {
     const { user, logOut } = UseAuth();
     const [openNav, setOpenNav] = useState(false);
+    const isAdmin = UseAdmin();
     const Goto = useNavigate();
 
     useEffect(() => {
@@ -68,19 +70,12 @@ export function NavBar() {
             </Typography>
         </ul>
     );
-    console.log(
-        openNav);
+    // console.log(
+    //     openNav);
 
 
     const handleLogout = () => {
-        // Swal.fire({
-        //     title: 'Logging out...',
-        //     allowOutsideClick: false,
-        //     showConfirmButton: false,
-        //     willOpen: () => {
-        //         Swal.showLoading();
-        //     },
-        // });
+
         logOut()
             .then((res) => {
 
@@ -116,7 +111,10 @@ export function NavBar() {
                                     </div>
                                     <ul tabIndex={0} className="menu  menu-sm text-[black] dropdown-content mt-3 z-[1] p-2 shadow  backdrop-blur-sm bg-[#ffffff42] rounded-box w-52">
 
-                                        <Link to={'/dashboard'}> <li>Dashboard</li></Link>
+                                        {
+
+                                            <Link to={'/dashboard/profile'}> <li>Dashboard</li></Link>
+                                        }
                                         <li onClick={handleLogout} ><a>Logout</a></li>
                                         <li><p>Email:{user?.email}</p></li>
                                     </ul>
@@ -183,7 +181,11 @@ export function NavBar() {
                 <MobileNav className="" open={openNav}>
                     {navList}
                     <ul>
-                        <Link to={'/dashboard'}> <li>Dashboard</li></Link>
+
+
+                        <Link to={'/dashboard/profile'}> <li>Dashboard</li></Link>
+
+
                     </ul>
                     {
                         user ?
