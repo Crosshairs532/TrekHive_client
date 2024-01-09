@@ -2,7 +2,9 @@
 
 import UseAdmin from "../../Hooks/UseAdmin";
 import UseAuth from "../../Hooks/UseAuth";
+import useTourGuide from "../../Hooks/useTourGuide";
 import AdminDashboard from "./AdminDashboard";
+import GuideDashboard from "./Guide/GuideDashboard";
 import UserDashboard from "./UserDashboard";
 
 
@@ -10,14 +12,18 @@ import UserDashboard from "./UserDashboard";
 const Dashboard = () => {
     const { user } = UseAuth();
     const admin = UseAdmin();
-    const tourist = false;
+    const tourist = useTourGuide();
     console.log(admin);
-    if (user && !admin) {
+    console.log(tourist);
+    if (user && !admin && !tourist) {
         return <UserDashboard></UserDashboard>
     }
     if (user && admin) {
         return <AdminDashboard></AdminDashboard>
+    }
 
+    if (user && tourist) {
+        return <GuideDashboard></GuideDashboard>
     }
 };
 

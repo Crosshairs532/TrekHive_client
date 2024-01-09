@@ -16,14 +16,13 @@ const ManageUsers = () => {
         queryFn: async () => {
             const res = await axiosSecure.get(`/admin/users?email=${user?.email}`);
             return res.data;
-
         }
     })
     if (!isFetched) {
         return <Loaading></Loaading>
     }
 
-    const handleRoleChange = async (role, id, name) => {
+    const handleRoleChange = async (role, id, name, image, email) => {
         if (role == 'admin') {
             const res = await axiosSecure.patch(`/admin/users?id=${id}&&role=${role}`);
             if (res.data.modifiedCount > 0) {
@@ -39,10 +38,11 @@ const ManageUsers = () => {
                 toast.success(`${name} has been Updated to ${role}`)
                 refetch()
                 setDisable(true)
+                const guide = { name: name, image: image, contactDetails: { email: email } }
+                const res = await axiosSecure.post('/admin/guides', guide);
                 return
             }
         }
-
 
     }
     return (
@@ -90,7 +90,7 @@ const ManageUsers = () => {
                                     </td>
                                     <td>{user.role}</td>
                                     <th>
-                                        <button onClick={() => handleRoleChange('guide', user._id, user.name)} disabled={user?.role == 'admin' || user?.role == 'guide'} className="btn btn-ghost btn-xs">Make Guide</button>
+                                        <button onClick={() => handleRoleChange('guide', user._id, user.name, user.image, user.email)} disabled={user?.role == 'admin' || user?.role == 'guide'} className="btn btn-ghost btn-xs">Make Guide</button>
 
                                     </th>
                                     <th>

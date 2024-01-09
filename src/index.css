@@ -447,6 +447,11 @@ label,
   background-color: #f1f3fa;
 }
 
+.mySwiper {
+  width: 100%;
+  /* border: 2px solid black; */
+}
+
 .guide-more:after {
   content: "";
   width: 100%;

@@ -12,6 +12,7 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import AdminPrivate from "../PrivateRoute/AdminPrivate";
 import AddPackage from "../Pages/Dashboard/Admin/AddPackage";
 import ManageUsers from "../Pages/Dashboard/Admin/ManageUsers";
+import GuideDetails from "../Pages/GuideDetails";
 // import Allpackges from "../Pages/AllPackages/Allpackges";
 
 
@@ -24,11 +25,15 @@ const router = createBrowserRouter([
                 index: true,
                 element: <Home></Home>
             },
-
             {
                 path: '/ourPackages/details/:id',
                 element: <PackageDetails></PackageDetails>
             },
+            {
+                path: '/guides/details/:id',
+                element: <GuideDetails></GuideDetails>
+
+            }
             // {
             //     path: '/allpackges',
             //     element: <Allpackges></Allpackges>

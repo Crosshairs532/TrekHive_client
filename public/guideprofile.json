@@ -1,0 +1,104 @@
+[
+    {
+        "name": "John Doe",
+        "image": "https://i.ibb.co/Lkw4SfT/21301231-Md-Samsul-Arefin.jpg",
+        "contactDetails": {
+            "email": "john.doe@example.com",
+            "phone": "+1234567890",
+            "address": "123 Main Street, Cityville"
+        },
+        "education": [
+            {
+                "degree": "Bachelor of Science in Computer Science",
+                "school": "University of Example",
+                "year": 2015
+            },
+            {
+                "degree": "Master of Science in Information Technology",
+                "school": "Tech Institute",
+                "year": 2017
+            }
+        ],
+        "skills": [
+            "Tour Guiding",
+            "Customer Service",
+            "Language Proficiency: English, Spanish",
+            "Outdoor Adventure Leadership"
+        ],
+        "workExperience": [
+            {
+                "position": "Senior Tour Guide",
+                "company": "Adventure Explorers",
+                "startDate": "2018-01-01",
+                "endDate": "2022-12-31",
+                "responsibilities": [
+                    "Lead guided tours and ensure a positive experience for customers",
+                    "Provide historical and cultural insights during tours",
+                    "Coordinate logistics for group activities"
+                ]
+            },
+            {
+                "position": "Tour Coordinator",
+                "company": "Travel Adventures Inc.",
+                "startDate": "2015-03-15",
+                "endDate": "2017-12-31",
+                "responsibilities": [
+                    "Assisted in planning and organizing travel itineraries",
+                    "Managed communication with clients and vendors",
+                    "Ensured smooth execution of travel plans"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "John Doe",
+        "image": "https://example.com/profile-picture.jpg",
+        "contactDetails": {
+            "email": "john.doe@example.com",
+            "phone": "+1234567890",
+            "address": "123 Main Street, Cityville"
+        },
+        "education": [
+            {
+                "degree": "Bachelor of Science in Computer Science",
+                "school": "University of Example",
+                "year": 2015
+            },
+            {
+                "degree": "Master of Science in Information Technology",
+                "school": "Tech Institute",
+                "year": 2017
+            }
+        ],
+        "skills": [
+            "Tour Guiding",
+            "Customer Service",
+            "Language Proficiency: English, Spanish",
+            "Outdoor Adventure Leadership"
+        ],
+        "workExperience": [
+            {
+                "position": "Senior Tour Guide",
+                "company": "Adventure Explorers",
+                "startDate": "2018-01-01",
+                "endDate": "2022-12-31",
+                "responsibilities": [
+                    "Lead guided tours and ensure a positive experience for customers",
+                    "Provide historical and cultural insights during tours",
+                    "Coordinate logistics for group activities"
+                ]
+            },
+            {
+                "position": "Tour Coordinator",
+                "company": "Travel Adventures Inc.",
+                "startDate": "2015-03-15",
+                "endDate": "2017-12-31",
+                "responsibilities": [
+                    "Assisted in planning and organizing travel itineraries",
+                    "Managed communication with clients and vendors",
+                    "Ensured smooth execution of travel plans"
+                ]
+            }
+        ]
+    }
+]
