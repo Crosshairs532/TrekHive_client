@@ -4,15 +4,17 @@ import AxiosSecure from '../../../Axios/AxiosSecure';
 import Loaading from '../../../Loading/Loaading';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
+import UseAuth from '../../../Hooks/UseAuth';
 
 
 const ManageUsers = () => {
     const axiosSecure = AxiosSecure();
     const [disable, setDisable] = useState(false);
+    const { user } = UseAuth();
     const { data: allUsers = [], isFetched, refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await axiosSecure.get('/admin/users');
+            const res = await axiosSecure.get(`/admin/users?email=${user?.email}`);
             return res.data;
 
         }
@@ -88,11 +90,11 @@ const ManageUsers = () => {
                                     </td>
                                     <td>{user.role}</td>
                                     <th>
-                                        <button onClick={() => handleRoleChange('guide', user._id, user.name)} disabled={disable} className="btn btn-ghost btn-xs">Make Guide</button>
+                                        <button onClick={() => handleRoleChange('guide', user._id, user.name)} disabled={user?.role == 'admin' || user?.role == 'guide'} className="btn btn-ghost btn-xs">Make Guide</button>
 
                                     </th>
                                     <th>
-                                        <button disabled={disable} onClick={() => handleRoleChange('admin', user._id, user.name)} className="btn btn-ghost btn-xs">Make admin</button>
+                                        <button disabled={user?.role == 'guide' || user?.role == 'admin'} onClick={() => handleRoleChange('admin', user._id, user.name)} className="btn btn-ghost btn-xs">Make admin</button>
                                     </th>
                                 </tr>
 

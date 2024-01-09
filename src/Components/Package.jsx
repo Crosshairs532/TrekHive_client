@@ -3,18 +3,29 @@ import axios from "axios";
 import { ThreeDots } from 'react-loader-spinner'
 import Cards from "./Cards";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+
 
 const Package = () => {
-    const [all, setAll] = useState([]);
+
+    const [less, setLess] = useState(true);
     const [count, setCount] = useState(3);
     const { data: allPackages = [], isFetched, refetch } = useQuery({
-        queryKey: ['package'],
+        queryKey: ['package', count],
         queryFn: async () => {
             const res = await axios.get(`http://localhost:4000/packages?count=${count}`);
             return res.data;
         }
     })
+
+    useEffect(() => {
+        if (count > 3) {
+            setLess(false)
+        }
+        else {
+
+            setLess(true)
+        }
+    }, [count])
 
     if (!isFetched) {
         return <div className=" border-2 h-[100vh] flex justify-center items-center">
@@ -31,13 +42,19 @@ const Package = () => {
             />
         </div>
     }
-
-
     const handleSeeMore = () => {
         setCount(count * 2)
         refetch()
+
     }
 
+    const handleSeeLess = () => {
+        if (count > 3) {
+            setCount(count - 3);
+            refetch()
+        }
+
+    }
 
     return (
         <>
@@ -51,7 +68,11 @@ const Package = () => {
             </div>
             <div className=' w-full flex justify-center item-center py-10'>
                 {/* <Link to={'/home/allpackges'}><button className=' mx-auto btn bg-[#004E52] text-[#F0F3FA] font-syne text-xl' >All Packages</button></Link> */}
-                <button onClick={handleSeeMore} className=' mx-auto btn bg-[#004E52] text-[#F0F3FA] font-syne text-xl' >All Packages</button>
+                <button onClick={handleSeeMore} className=' mx-auto  text-[#004E52] underline underline-offset-8  font-syne text-xl' >see more</button>
+                {
+                    less ? '' : <button onClick={handleSeeLess} className=' mx-auto  text-[#004E52] underline underline-offset-8  font-syne text-xl' >see less</button>
+
+                }
             </div >
         </>
     );
