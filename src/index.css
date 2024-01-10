@@ -477,3 +477,9 @@ label,
   transition: all .4s ease-in-out;
   color: #555454;
 }
+
+.no_package {
+  text-shadow: 5px 4px 2px #011621c5, 6px 8px 2px #065782;
+
+
+}
