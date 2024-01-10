@@ -13,6 +13,7 @@ import AdminPrivate from "../PrivateRoute/AdminPrivate";
 import AddPackage from "../Pages/Dashboard/Admin/AddPackage";
 import ManageUsers from "../Pages/Dashboard/Admin/ManageUsers";
 import GuideDetails from "../Pages/GuideDetails";
+import AllTourTypes from "../Components/AllTourTypes";
 // import Allpackges from "../Pages/AllPackages/Allpackges";
 
 
@@ -34,6 +35,12 @@ const router = createBrowserRouter([
                 element: <GuideDetails></GuideDetails>
 
             }
+            ,
+            {
+                path: '/tourtypes/:type',
+                element: <AllTourTypes></AllTourTypes>
+            }
+
             // {
             //     path: '/allpackges',
             //     element: <Allpackges></Allpackges>

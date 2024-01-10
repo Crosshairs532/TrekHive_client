@@ -243,11 +243,10 @@
   z-index: 5;
 }
 
-.signin-btn:hover,
+
 .signin-btn:hover .log-color {
   color: #efeff9;
 }
-
 
 .nav-item::after {
   content: "";
@@ -399,10 +398,8 @@ label,
   width: 100%;
   height: 100%;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.636),
-      /* Adjust the alpha (transparency) value as needed */
-      transparent
-      /* You can also customize the color stops */
-    );
+
+      transparent);
 }
 
 .tourisms {
@@ -439,7 +436,6 @@ label,
   background-color: black;
 
 }
-
 
 .hi {
   width: 400px !important;
