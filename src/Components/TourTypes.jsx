@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom';
 const TourTypes = () => {
 
 
-
     return (
         <div className=' '>
             <h1 className=" font-syne guide overflow-hidden relative text-xl lg:text-4xl font-bold ">Types of Tour we Offer</h1>

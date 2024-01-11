@@ -1,3 +1,4 @@
+import StoryTourist from "../../Components/StoryTourist";
 import TourGuides from "../../Components/TourGuides";
 import TourTypes from "../../Components/TourTypes";
 import Tourism from "../../Components/Tourism";
@@ -20,6 +21,9 @@ const Home = () => {
                 </div>
                 <div className=" max-w-7xl relative mx-auto min-h-[80vh]">
                     <TourTypes></TourTypes>
+                </div>
+                <div className="">
+                    <StoryTourist></StoryTourist>
                 </div>
             </div>
         </div>

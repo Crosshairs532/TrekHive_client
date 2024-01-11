@@ -10,6 +10,7 @@ const Layout = () => {
         damping: 30,
         restDelta: 0.001
     });
+
     return (
         <div>
             <motion.div className="progress-bar" style={{ scaleX }} />
