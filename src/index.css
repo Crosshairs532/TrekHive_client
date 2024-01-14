@@ -448,6 +448,13 @@ label,
   /* border: 2px solid black; */
 }
 
+.mySwiper1 {
+  width: 80%;
+  color: white;
+  border: 2px solid red;
+
+}
+
 .guide-more:after {
   content: "";
   width: 100%;
@@ -482,4 +489,10 @@ label,
   text-shadow: 5px 4px 2px #011621c5, 6px 8px 2px #065782;
 
 
+}
+
+.active-slide {
+
+  border: 2px solid #ff0000;
+  background-color: #011621;
 }
