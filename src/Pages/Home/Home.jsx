@@ -22,7 +22,7 @@ const Home = () => {
                 <div className=" max-w-7xl relative mx-auto min-h-[80vh]">
                     <TourTypes></TourTypes>
                 </div>
-                <div className="">
+                <div className=" max-w-7xl relative py-[30px] mx-auto min-h-[80vh]">
                     <StoryTourist></StoryTourist>
                 </div>
             </div>
