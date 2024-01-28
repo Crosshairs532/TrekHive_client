@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
@@ -15,13 +14,13 @@ const TourGuides = () => {
         queryKey: ['guides'],
         queryFn: async () => {
             const res = await axiosPublic.get('/guides');
-            return res.data;
+            return res?.data;
         }
     })
 
     return (
         <div className=" relative">
-            <h1 className=" font-syne overflow-hidden guide relative text-xl lg:text-4xl font-bold "> Meet Our Tour Guides</h1>
+            <h1 className=" font-syne overflow-hidden guide relative text-xl lg:text-5xl font-bold "> Meet Our Tour Guides</h1>
             <div className="flex justify-center  items-center">
                 <Swiper
                     effect={'coverflow'}
@@ -40,7 +39,7 @@ const TourGuides = () => {
                     className="mySwiper mt-20"
                 >
                     {
-                        Guides.map((guide, idx) => (
+                        Guides?.map((guide, idx) => (
 
                             <SwiperSlide key={idx} className="hi" >
                                 <div className=" flex relative justify-center items-center flex-col w-full h-[300px]">

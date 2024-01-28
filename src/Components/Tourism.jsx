@@ -21,7 +21,7 @@ const Tourism = () => {
 
     return (
         <>
-            <h1 className=' text-2xl md:text-3xl lg:text-5xl font-syne font-extrabold text-center tourism'>Tourism and travel guide </h1>
+            <h1 className=' text-2xl md:text-3xl lg:text-5xl font-syne font-extrabold text-center  tourism'>Tourism and travel guide </h1>
             <div className='  mt-16 '>
                 <TabContext value={value} >
                     <div className='  w-[max-content] mx-auto'>

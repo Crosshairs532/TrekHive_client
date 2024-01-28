@@ -5,11 +5,9 @@ import wildlife from '../assets/wildlife.jpeg';
 import { Link } from 'react-router-dom';
 
 const TourTypes = () => {
-
-
     return (
         <div className=' '>
-            <h1 className=" font-syne guide overflow-hidden relative text-xl lg:text-4xl font-bold ">Types of Tour we Offer</h1>
+            <h1 className=" font-syne guide overflow-hidden relative text-xl lg:text-5xl font-bold ">Types of Tour we Offer</h1>
             <div className=' mt-[6%] '>
                 <div className=" grid lg:grid-cols-4 gap-y-2 md:grid-cols-2 grid-cols-1 place-items-center">
                     <Link to={'/tourtypes/hiking'}>

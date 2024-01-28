@@ -4,45 +4,21 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
+import { Navigation } from 'swiper/modules';
+import Stories from './Stories';
 
 const StoryTourist = () => {
-    const [activeIndex, setActiveIndex] = useState(0);
-
-    const handleSlideChange = (swiper) => {
-        console.log(swiper);
-        setActiveIndex(swiper.activeIndex);
-    };
 
     return (
         <>
-            <div className=' flex justify-center items-center flex-col mx-auto border-2'>
+            <div className=' flex justify-center items-center flex-col mx-auto'>
                 <div className=' space-y-3'>
                     <h1 className=' font-syne text-center font-bold text-4xl'>Precious Stories </h1>
                     <p className=' font-sans text-center  text-sm text-gray-400'>This is What matters</p>
                 </div>
             </div>
             <div>
-                <Swiper
-                    pagination={{
-                        type: 'fraction',
-                    }}
-                    navigation={true}
-                    modules={[Pagination, Navigation]}
-                    className="mySwiper1"
-                    slidesPerView={3}
-                    centeredSlides={1}
-                    spaceBetween={20}
-                    onSlideChange={(swiper) => handleSlideChange(swiper)}
-                >
-                    {[...Array(9)].map((_, index) => (
-                        <SwiperSlide key={index} >
-                            <div className={`  text-black duration-300 w-[400px] bg-[#d2d2d2cd] h-[300px] ${activeIndex === index ? 'active-slide' : ''}`}>
-                                Slide {index}
-                            </div>
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
+                <Stories></Stories>
             </div>
         </>
     );

@@ -14,6 +14,7 @@ import AddPackage from "../Pages/Dashboard/Admin/AddPackage";
 import ManageUsers from "../Pages/Dashboard/Admin/ManageUsers";
 import GuideDetails from "../Pages/GuideDetails";
 import AllTourTypes from "../Components/AllTourTypes";
+import StoryDetails from "../Components/StoryDetails";
 // import Allpackges from "../Pages/AllPackages/Allpackges";
 
 
@@ -39,6 +40,11 @@ const router = createBrowserRouter([
             {
                 path: '/tourtypes/:type',
                 element: <AllTourTypes></AllTourTypes>
+            }
+            ,
+            {
+                path: '',
+                element: <StoryDetails></StoryDetails>
             }
 
             // {

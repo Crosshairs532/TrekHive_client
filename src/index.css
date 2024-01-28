@@ -10,7 +10,6 @@
   box-sizing: border-box;
 }
 
-
 .logo {
   background-image: url('./assets/logo.svg');
   background-repeat: no-repeat;
@@ -426,16 +425,36 @@ label,
   }
 }
 
-.guide:after {
-  content: '';
-  width: 100%;
-  height: .5px;
-  top: 50%;
-  margin-left: 10px;
-  position: absolute;
-  background-color: black;
+
+
+
+@media (width>768px) {
+  .guide {
+    -webkit-text-stroke: .7px #011621;
+    color: transparent;
+  }
+
+  .guide:after {
+    content: '';
+    width: 100%;
+    height: .5px;
+    top: 50%;
+    margin-left: 10px;
+    position: absolute;
+    background-color: black;
+  }
+}
+
+@media (width<=768px) {
+  .guide {
+    -webkit-text-stroke: .7px #011621;
+    text-align: center;
+    font-size: 30px;
+  }
 
 }
+
+
 
 .hi {
   width: 400px !important;
@@ -443,19 +462,7 @@ label,
   background-color: #f1f3fa;
 }
 
-.mySwiper {
-  width: 100%;
-  /* border: 2px solid black; */
-}
 
-.mySwiper1 {
-  width: 100%;
-  height: 400px;
-  border: 2px solid black;
-  background-color: #065782;
-  padding: 20px 0px;
-
-}
 
 .guide-more:after {
   content: "";
@@ -490,15 +497,44 @@ label,
 .no_package {
   text-shadow: 5px 4px 2px #011621c5, 6px 8px 2px #065782;
 
+}
+
+.mySwiper {
+  width: 100%;
+  /* border: 2px solid black; */
+}
+
+.mySwiper1 {
+  width: 100%;
+  height: 60dvh;
+  /* border: 2px solid black; */
+  /* background-color: #065782; */
+  padding: 20px 0px;
+}
+
+.TourStory {
+  margin-top: 20px;
+  margin-bottom: 10px;
 
 }
 
 .active-slide {
+  /* box-shadow: 10px 10px 50px black; */
 
-  box-shadow: 10px 10px 50px black;
   transition: all;
-  outline: 2px solid;
-  outline-color: #011621;
+  /* border: 2px solid; */
+  border-left: 6px solid;
+  border-image-source: linear-gradient(0deg, #042b40, #024e77, transparent);
+  border-image-slice: 2;
+  scale: 1.05;
+  background-color: #e8edfe;
+}
 
+.storyDes {
+
+  background-image: linear-gradient(to right, black, rgb(158, 158, 158), transparent);
+  background-clip: text;
+  color: transparent;
+  -webkit-background-clip: text;
 
 }

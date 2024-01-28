@@ -7,6 +7,7 @@ import {
     Button,
     IconButton,
     MobileNav,
+    Collapse,
 
 } from "@material-tailwind/react";
 import { Link, useNavigate } from "react-router-dom";
@@ -178,7 +179,7 @@ export function NavBar() {
                         </IconButton>
                     </div>
                 </div>
-                <MobileNav className="" open={openNav}>
+                <Collapse className="" open={openNav}>
                     {navList}
                     <ul>
 
@@ -211,7 +212,7 @@ export function NavBar() {
 
                             </div>
                     }
-                </MobileNav>
+                </Collapse>
             </Navbar>
 
         </div>
