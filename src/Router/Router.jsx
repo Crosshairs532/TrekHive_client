@@ -43,7 +43,7 @@ const router = createBrowserRouter([
             }
             ,
             {
-                path: '',
+                path: '/tour_story/:storyGiverName/:id',
                 element: <StoryDetails></StoryDetails>
             }
 

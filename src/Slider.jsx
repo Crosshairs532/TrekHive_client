@@ -4,7 +4,7 @@ import img2 from './assets/travel2.jpeg'
 import img3 from './assets/travel3.jpeg'
 import img4 from './assets/travel4.jpeg'
 import img5 from './assets/travel5.jpeg'
-// import img6 from './assets/travel6.jpeg'
+
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 import { MdOutlineKeyboardDoubleArrowLeft } from "react-icons/md";
 
@@ -19,7 +19,7 @@ const Slider = () => {
         const items = document.querySelectorAll('.item');
         document.querySelector('.slide').prepend(items[items.length - 1]);
     };
-    // style={{ backgroundImage: `url(${img6})`
+
     return (
         <div className="container z-10 min-h-screen max-w-full">
             <div className="slide ">
