@@ -4,9 +4,11 @@ import img2 from './assets/travel2.jpeg'
 import img3 from './assets/travel3.jpeg'
 import img4 from './assets/travel4.jpeg'
 import img5 from './assets/travel5.jpeg'
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 import { MdOutlineKeyboardDoubleArrowLeft } from "react-icons/md";
+import { useEffect } from 'react'
 
 const Slider = () => {
     const handleNext = () => {
@@ -19,11 +21,15 @@ const Slider = () => {
         const items = document.querySelectorAll('.item');
         document.querySelector('.slide').prepend(items[items.length - 1]);
     };
+    useEffect(() => {
+        AOS.init();
+        AOS.refresh();
+    }, [])
 
     return (
         <div className="container z-10 min-h-screen max-w-full">
             <div className="slide ">
-                <div className="item img1">
+                <div className="item img1" >
                     <div className="content  space-y-3 font-syne text-white">
                         <div className="name text-6xl font-syne font-bold text-[#F5F5F5]">Switzerland</div>
                         <div className="des text-[#F5F5F5]">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!</div>
@@ -37,21 +43,21 @@ const Slider = () => {
                         <button className=' sbtn bg-[#2572c04b] px-4 py-2 rounded-xl font-sans text-zinc-800 font-semibold'>See More</button>
                     </div>
                 </div>
-                <div className="item im3 ne" style={{ backgroundImage: `url(${img2})` }}>
+                <div className="item im3 ne" data-aos-easing="linear" data-aos="fade-left" data-duration="1000" style={{ backgroundImage: `url(${img2})` }}>
                     <div className="content space-y-3 font-syne text-white">
                         <div className="name text-6xl font-syne font-bold text-[#F5F5F5]">Iceland</div>
                         <div className="des text-[#F5F5F5]">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!</div>
                         <button className=' sbtn bg-[#2572c04b] px-4 py-2 rounded-xl font-sans text-zinc-800 font-semibold'>See More</button>
                     </div>
                 </div>
-                <div className="item im4" style={{ backgroundImage: `url(${img3})` }}>
+                <div className="item im4" data-aos-easing="linear" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="50" style={{ backgroundImage: `url(${img3})` }}>
                     <div className="content space-y-3 font-syne text-white">
                         <div className="name text-6xl font-syne font-bold text-[#F5F5F5]">Australia</div>
                         <div className="des text-[#F5F5F5]">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!</div>
                         <button className=' sbtn bg-[#2572c04b] px-4 py-2 rounded-xl font-sans text-zinc-800 font-semibold'>See More</button>
                     </div>
                 </div>
-                <div className="item im5" style={{ backgroundImage: `url(${img4})` }}>
+                <div className="item im5" data-aos-easing="linear" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200" style={{ backgroundImage: `url(${img4})` }}>
                     <div className="content space-y-3 font-syne text-white">
                         <div className="name text-6xl font-syne font-bold text-[#F5F5F5]">Netherland</div>
                         <div className="des text-[#F5F5F5]">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!</div>
