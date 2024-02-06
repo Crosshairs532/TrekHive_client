@@ -20,6 +20,9 @@ const StoryTourist = () => {
             <div>
                 <Stories></Stories>
             </div>
+            <div className=' w-full flex justify-center items-center'>
+                <button className=' font-syne font-semibold text-[#065782] btn btn-outline'>More Stories</button>
+            </div>
         </>
     );
 }
