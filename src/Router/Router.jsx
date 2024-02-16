@@ -15,6 +15,7 @@ import ManageUsers from "../Pages/Dashboard/Admin/ManageUsers";
 import GuideDetails from "../Pages/GuideDetails";
 import AllTourTypes from "../Components/AllTourTypes";
 import StoryDetails from "../Components/StoryDetails";
+import AllStories from "../Pages/AllStories/AllStories";
 // import Allpackges from "../Pages/AllPackages/Allpackges";
 
 
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
             {
                 path: '/tour_story/:storyGiverName/:id',
                 element: <StoryDetails></StoryDetails>
+            },
+            {
+                path: '/allStories',
+                element: <AllStories></AllStories>
             }
 
             // {

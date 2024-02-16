@@ -6,9 +6,10 @@ import 'swiper/css/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import Stories from './Stories';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const StoryTourist = () => {
-
+    const navigate = useNavigate();
     return (
         <>
             <div className=' flex justify-center items-center flex-col mx-auto'>
@@ -21,7 +22,7 @@ const StoryTourist = () => {
                 <Stories></Stories>
             </div>
             <div className=' w-full flex justify-center items-center'>
-                <button className=' font-syne font-semibold text-[#065782] btn btn-outline'>More Stories</button>
+                <button onClick={() => navigate('/allStories')} className=' font-syne font-semibold text-[#065782] btn btn-outline'>More Stories</button>
             </div>
         </>
     );

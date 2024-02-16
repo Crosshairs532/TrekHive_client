@@ -532,6 +532,18 @@ label,
   background-color: #e8edfe;
 }
 
+.active:hover {
+  border-image-source: linear-gradient(0deg, #042b40, #024e77, transparent);
+  border-image-slice: 1;
+  border-left: 6px solid;
+}
+
+/* @media (width<=425px) {
+  .active:hover {
+    width: 100px;
+  }
+} */
+
 .storyDes {
 
   background-image: linear-gradient(to right, black, rgb(158, 158, 158), transparent);

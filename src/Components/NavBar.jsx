@@ -90,7 +90,7 @@ export function NavBar() {
     }
 
     return (
-        <div className=" z-20 bg-transparent w-[100vw] absolute outline-none border-none ">
+        <div className=" z-20 bg-transparent w-[100vw] fixed outline-none border-none ">
             <Navbar withBorder={false} className={` max-w-full outline-none bg-[#00000010] rounded-none px-4 py-2 lg:px-8 lg:py-4`}>
                 <div className="flex max-w-6xl outline-none mx-auto items-center justify-between">
                     <div className=" flex justify-center items-center logo w-[80px] h-[80px]  ">
