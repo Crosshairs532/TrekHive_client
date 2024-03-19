@@ -54,12 +54,12 @@ const Stories = () => {
             {stories?.map((story, index) => (
                 <SwiperSlide className="TourStory" key={story._id}>
                     <Link to={`tour_story/${story.storyGiverName}/${story._id}`}>
-                        <div className={`px-4 py-2 text-black duration-300 w-auto bg-[#f1f3fa] h-[200px] ${activeIndex === index ? 'active-slide' : ''}`}>
+                        <div className={` px-4 py-2 text-black duration-300 w-auto bg-[#f1f3fa] h-[200px] ${activeIndex === index ? 'active-slide' : ''}`}>
                             <img className=' w-20 h-20 rounded-badge' loading="lazy" src={story?.profileImage} alt="" />
                             <h2 className="font-syne font-semibold">{story?.storyGiverName}</h2>
-                            <div className="font-light">
-                                <span>{story.tourExperience.length > 100 ? story.tourExperience.slice(0, 100) : ''}</span>
-                                <span className="storyDes"> {story.tourExperience.slice(100, 110) + '......'}</span>
+                            <div className="font-light  py-2 overflow-hidden">
+                                <span className='storyDes'>{story.tourExperience.length > 100 ? story.tourExperience.slice(0, 100) + '......' : ''}</span>
+                                {/* <span className="storyDes"> {story.tourExperience.slice(100, 110) + '......'}</span> */}
                             </div>
                         </div>
                     </Link>

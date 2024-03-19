@@ -21,11 +21,11 @@ const AllStories = () => {
 
     return (
         <div className="  py-[124px]">
-            <div className=" z-10 container min-h-screen place-items-center mx-auto  md:gap-x-2 lg:gap-x-2 gap-y-2 grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2">
+            <div className=" z-10 container min-h-screen place-items-center mx-auto md:gap-x-2 lg:gap-x-2 gap-y-2 grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2">
                 {
                     allStories?.map((story, index) => (
                         <Link className="group" key={index} to={`/tour_story/${story.storyGiverName}/${story._id}`}>
-                            <div className={` py-2 mx-2 lg:mx-0 md:mx-0 active text-black duration-300 px-4 w-auto md:w-auto lg:w-auto bg-[#f1f3fa] h-[200px] `}>
+                            <div className={` overflow-hidden py-2 mx-2 lg:mx-0 md:mx-0 active text-black duration-300 px-4 w-auto md:w-auto lg:w-[400px] bg-[#f1f3fa] h-[200px] `}>
                                 <img className=" w-20 h-20 rounded-badge" loading="lazy" src={story?.profileImage} alt="" />
                                 <h2 className="font-syne font-semibold">{story?.storyGiverName}</h2>
                                 <div className="font-light">

@@ -17,20 +17,14 @@ const TextArea = () => {
         setInputValue(event.target.value)
     }
     const handleShareStory = async () => {
-        const story = { storyGiverName: user?.displayName, profileImage: user?.profileImage, tourExperience: inputValue }
+        const story = { storyGiverName: user?.displayName, profileImage: user?.photoURL, tourExperience: inputValue }
         const res = await axiosPublic.post('/stories', story);
-        toast.promise(res, {
-            loading: 'Loading',
-            success: (data) => `You have Shared Your Experience${data}`,
-            error: (err) => `This just happened: ${err.toString()}`
-        },
-            {
-                style: {
-                    position: 'bottom-right',
-
-                }
-            }
-        )
+        if (res.data.insertedId) {
+            toast('Your Story is now visible to others', {
+                position: 'bottom-right',
+                icon: '👏',
+            })
+        }
         console.log(res);
     }
 
@@ -42,7 +36,7 @@ const TextArea = () => {
                     <Button onClick={() => setInputValue("")} size="sm" color="red" variant="text" className="rounded-md">
                         Cancel
                     </Button>
-                    <Button onClick={() => handleShareStory} size="sm" className="rounded-md">
+                    <Button onClick={handleShareStory} size="sm" className="rounded-md">
                         Share Story
                     </Button>
                 </div>
