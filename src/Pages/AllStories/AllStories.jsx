@@ -26,7 +26,7 @@ const AllStories = () => {
                     allStories?.map((story, index) => (
                         <Link className="group" key={index} to={`/tour_story/${story.storyGiverName}/${story._id}`}>
                             <div className={` py-2 mx-2 lg:mx-0 md:mx-0 active text-black duration-300 px-4 w-auto md:w-auto lg:w-auto bg-[#f1f3fa] h-[200px] `}>
-                                <img loading="lazy" src={story?.profileImage} alt="" />
+                                <img className=" w-20 h-20 rounded-badge" loading="lazy" src={story?.profileImage} alt="" />
                                 <h2 className="font-syne font-semibold">{story?.storyGiverName}</h2>
                                 <div className="font-light">
                                     <span>{story.tourExperience.length > 100 ? story.tourExperience.slice(0, 100) : ''}</span>

@@ -4,6 +4,7 @@ import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged,
 import { createContext, useEffect, useState } from "react";
 import auth from "../firebase/firebase.config";
 import AxiosPublic from '../Axios/AxiosPublic';
+import { CiGlass } from "react-icons/ci";
 
 export const authContext = createContext(null);
 const Authprovider = ({ children }) => {
@@ -24,6 +25,7 @@ const Authprovider = ({ children }) => {
     useEffect(() => {
         const Unsub = onAuthStateChanged(auth, async (user) => {
             setUser(user)
+
             if (user) {
                 const userEmail = { email: user?.email };
                 const res = await axiosPublic.post('/jwt', userEmail);
@@ -50,7 +52,6 @@ const Authprovider = ({ children }) => {
     const logOut = () => {
         return signOut(auth)
     }
-
 
     const authInfo = { GoogleSignIn, SignUp, SignIn, isLoading, user, logOut, updateUserProfile }
     return (

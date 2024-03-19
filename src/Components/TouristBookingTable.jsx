@@ -5,7 +5,6 @@ import { useEffect } from 'react';
 import AwesomeButton from 'react-awesome-button';
 
 const TouristBookingTable = ({ data }) => {
-
     return (
         <div className=' mt-[50px]'>
             <h1 className=' font-syne font-bold text-3xl lg:text-5xl text-center'>My Bookings</h1>

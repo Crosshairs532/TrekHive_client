@@ -50,7 +50,7 @@ const TouristWishlist = () => {
                     </thead>
                     <tbody>
                         {
-                            data.length > 0 ? (
+                            data?.length > 0 ? (
                                 data?.map((item, idx) => (
                                     <tr key={idx}>
                                         <th>{idx + 1}</th>

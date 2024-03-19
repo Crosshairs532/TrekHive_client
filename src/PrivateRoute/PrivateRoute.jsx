@@ -4,12 +4,14 @@
 import { Navigate, useLocation } from "react-router-dom";
 import UseAuth from "../Hooks/UseAuth";
 import { ThreeDots } from "react-loader-spinner";
+import { CiGlass } from "react-icons/ci";
 
 
 const PrivateRoute = ({ children }) => {
     const location = useLocation();
     const { user, isLoading } = UseAuth();
     console.log('im in', location.pathname)
+    console.log(isLoading);
 
     if (isLoading) {
 

@@ -8,12 +8,12 @@ import GuideDashboard from "./Guide/GuideDashboard";
 import UserDashboard from "./UserDashboard";
 
 
-
 const Dashboard = () => {
     const { user } = UseAuth();
     const admin = UseAdmin();
     const tourist = useTourGuide();
     console.log(admin);
+    console.log(user);
     console.log(tourist);
     if (user && !admin && !tourist) {
         return <UserDashboard></UserDashboard>

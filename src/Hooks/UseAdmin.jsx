@@ -16,6 +16,7 @@ const UseAdmin = () => {
         }
 
     })
+    console.log(data);
     return data
 };
 

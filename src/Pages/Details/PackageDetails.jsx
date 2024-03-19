@@ -11,6 +11,7 @@ import AxiosPublic from "../../Axios/AxiosPublic";
 
 const PackageDetails = () => {
     const param = useParams();
+    console.log(param);
     const axiosPublic = AxiosPublic();
 
     console.log(param);

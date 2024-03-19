@@ -46,7 +46,7 @@ const Registration = () => {
                 'content-type': 'multipart/form-data'
             }
         })
-        console.log(res.data.data, "hi");
+        // console.log(res.data.data, "hi");
         const photo = res.data?.data?.display_url;
         if (res.data?.data?.display_url) {
             const userInfo = { name: data?.name, email: data?.email, image: res.data?.data?.display_url, role: 'tourist' }

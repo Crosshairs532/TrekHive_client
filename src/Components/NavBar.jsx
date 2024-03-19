@@ -71,12 +71,8 @@ export function NavBar() {
             </Typography>
         </ul>
     );
-    // console.log(
-    //     openNav);
-
 
     const handleLogout = () => {
-
         logOut()
             .then((res) => {
 
@@ -112,29 +108,35 @@ export function NavBar() {
                                     </div>
                                     <ul tabIndex={0} className="menu  menu-sm text-[black] dropdown-content mt-3 z-[1] p-2 shadow  backdrop-blur-sm bg-[#ffffff42] rounded-box w-52">
 
-                                        {
-
-                                            <Link to={'/dashboard/profile'}> <li>Dashboard</li></Link>
-                                        }
-                                        <li onClick={handleLogout} ><a>Logout</a></li>
-                                        <li><p>Email:{user?.email}</p></li>
+                                        <li>
+                                            <Link to={'/dashboard/profile'}> Dashboard</Link>
+                                        </li>
+                                        <li onClick={handleLogout} >
+                                            <a>Logout</a>
+                                        </li>
+                                        <li>
+                                            <p>Email:{user?.email}</p>
+                                        </li>
                                     </ul>
                                 </div>
 
                                 :
 
                                 <div className="flex relative items-center justify-center gap-x-4">
-                                    <Link to={'/login'}>    <button
-                                        className="hidden rounded-xl z-10 px-3 py-2 login-btn  lg:inline-block"
-                                    >
-                                        <span className=" z-20 log-color">Log In</span>
-                                    </button></Link>
-                                    <Link to={'/signIn'}>  <button
-                                        size="sm"
-                                        className="hidden rounded-xl  px-3 py-2 signin-btn lg:inline-block"
-                                    >
-                                        <span className=" sign-color">Sign in</span>
-                                    </button></Link>
+                                    <Link to={'/login'}>
+                                        <button
+                                            className="hidden rounded-xl z-10 px-3 py-2 login-btn  lg:inline-block">
+                                            <span className=" z-20 log-color">Log In</span>
+                                        </button>
+                                    </Link>
+                                    <Link to={'/signIn'}>
+                                        <button
+                                            size="sm"
+                                            className="hidden rounded-xl  px-3 py-2 signin-btn lg:inline-block"
+                                        >
+                                            <span className=" sign-color">Sign in</span>
+                                        </button>
+                                    </Link>
 
                                 </div>
 
@@ -182,7 +184,6 @@ export function NavBar() {
                 <Collapse className="" open={openNav}>
                     {navList}
                     <ul>
-
 
                         <Link to={'/dashboard/profile'}> <li>Dashboard</li></Link>
 

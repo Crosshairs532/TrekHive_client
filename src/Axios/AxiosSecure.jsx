@@ -22,7 +22,6 @@ const AxiosSecure = () => {
     );
     axiosSecure.interceptors.response.use((response) => {
         return response;
-
     }, async (error) => {
         console.log('response error =>', error.message);
         const status = error.response.status;

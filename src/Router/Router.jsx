@@ -52,10 +52,7 @@ const router = createBrowserRouter([
                 element: <AllStories></AllStories>
             }
 
-            // {
-            //     path: '/allpackges',
-            //     element: <Allpackges></Allpackges>
-            // }
+
         ]
     },
     {

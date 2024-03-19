@@ -27,7 +27,7 @@ const AllTourTypes = () => {
                     <div className=" grid  lg:grid-cols-3 gap-2 md:grid-cols-2 grid-cols-1 place-items-center">
                         {
                             allTours.map((item, idx) => (
-                                <Cards key={idx} id={item._id} image={item.image} title={item.title} tourType={item.tourType} price={item.price}></Cards>
+                                <Cards key={idx} id={item._id} image={item.image} title={item.title} tourType={item?.tourType} price={item.price}></Cards>
                             ))
                         }
 
