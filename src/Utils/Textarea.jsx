@@ -1,42 +1,56 @@
-import { Button, IconButton } from "@mui/material";
+import { Textarea, Button } from "@material-tailwind/react";
+import { useState } from "react";
+import AxiosPublic from "../Axios/AxiosPublic";
+import UseAuth from "../Hooks/UseAuth";
+import toast from "react-hot-toast";
 
 
-const Textarea = () => {
-    {
-        return (
-            <div className="relative w-[32rem]">
-                <Textarea variant="static" placeholder="Your Comment" rows={8} />
-                <div className="flex w-full justify-between py-1.5">
-                    <IconButton variant="text" color="blue-gray" size="sm">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            strokeWidth={2}
-                            className="h-4 w-4"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"
-                            />
-                        </svg>
-                    </IconButton>
-                    <div className="flex gap-2">
-                        <Button size="sm" color="red" variant="text" className="rounded-md">
-                            Cancel
-                        </Button>
-                        <Button size="sm" className="rounded-md">
-                            Post Comment
-                        </Button>
-                    </div>
+
+const TextArea = () => {
+    const axiosPublic = AxiosPublic();
+    const [inputValue, setInputValue] = useState('');
+    const { user } = UseAuth();
+    const [text, setText] = useState(false);
+    const handleInputChange = (event) => {
+        console.log(event.target.value);
+        setText(!text);
+        setInputValue(event.target.value)
+    }
+    const handleShareStory = async () => {
+        const story = { storyGiverName: user?.displayName, profileImage: user?.profileImage, tourExperience: inputValue }
+        const res = await axiosPublic.post('/stories', story);
+        toast.promise(res, {
+            loading: 'Loading',
+            success: (data) => `You have Shared Your Experience${data}`,
+            error: (err) => `This just happened: ${err.toString()}`
+        },
+            {
+                style: {
+                    position: 'bottom-right',
+
+                }
+            }
+        )
+        console.log(res);
+    }
+
+    return (
+        <div className="relative w-[32rem]">
+            <Textarea value={inputValue} onChange={handleInputChange} variant="static" placeholder="Your Comment" rows={8} />
+            <div className="flex w-full justify-between py-1.5">
+                <div className={`flex gap-2 ${!inputValue ? "hidden" : "block"}`}>
+                    <Button onClick={() => setInputValue("")} size="sm" color="red" variant="text" className="rounded-md">
+                        Cancel
+                    </Button>
+                    <Button onClick={() => handleShareStory} size="sm" className="rounded-md">
+                        Share Story
+                    </Button>
                 </div>
             </div>
-        );
+        </div>
+    );
+
+}
 
 
-    }
-};
-
-export default Textarea;
+export default TextArea;

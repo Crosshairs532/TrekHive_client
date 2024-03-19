@@ -4,7 +4,8 @@ import UseAuth from '../../Hooks/UseAuth'
 import UseGuide from '../../Hooks/UseGuide';
 import AxiosPublic from '../../Axios/AxiosPublic';
 import Loaading from '../../Loading/Loaading';
-import Textarea from '../../Utils/Textarea';
+import TextArea from '../../Utils/Textarea';
+
 const Profile = () => {
     const { user } = UseAuth();
     const isAdmin = UseAdmin();
@@ -21,7 +22,6 @@ const Profile = () => {
     })
     if (isLoading) {
         return <Loaading></Loaading>
-
     }
 
     return (
@@ -29,7 +29,6 @@ const Profile = () => {
             <div className=" flex items-center justify-evenly gap-x-[100px]">
                 <div className=' w-[200px]  border-2 p-2 h-[200px] rounded-full'>
                     <img className='rounded-full' src={user?.photoURL} alt="" />
-
                 </div>
                 <div className=' flex flex-col gap-y-5'>
                     <h1 className=' text-4xl font-syne'>{user?.displayName}</h1>
@@ -37,18 +36,19 @@ const Profile = () => {
                     <p className=' text-lg font-syne'> {user?.email}</p>
                     <hr />
                     <p>Role:{isAdmin ? "admin" : (isGuide ? 'guide' : `${data}`)}
-
                     </p>
                     <hr />
 
                 </div>
             </div>
 
-            <div>
+            <div className=' p-4'>
                 <h1 className=' text-4xl font-extrabold'>Share Your Experience: </h1>
-                {
-                    !isAdmin ? <Textarea></Textarea> : ""
-                }
+                <div className='pl-10'>
+                    {
+                        !isAdmin ? <TextArea></TextArea> : ""
+                    }
+                </div>
             </div>
         </div >
     );
