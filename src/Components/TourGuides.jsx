@@ -42,11 +42,11 @@ const TourGuides = () => {
                         Guides?.map((guide, idx) => (
 
                             <SwiperSlide key={idx} className="hi" >
-                                <div className=" flex relative justify-center items-center flex-col w-full h-[300px]">
-                                    <img className=" w-[100px] h-[100px] rounded-full" src={guide.image} alt="" />
-                                    <h1 className=" text-2xl font-syne text-gray-50">{guide.name}</h1>
+                                <div className=" flex relative bg-[#e5f9ff] justify-center items-center flex-col space-y-3 w-full h-[300px]">
+                                    <img className=" w-[100px] h-[100px] rounded-full" src={guide?.image} alt="" />
+                                    <h1 className=" text-2xl font-syne text-[#002538ef]">{guide?.name}</h1>
 
-                                    <Link to={`/guides/details/${guide._id}`}><button className=" guide-more relative">see more</button></Link>
+                                    <Link to={`/guides/details/${guide?._id}`}><button className=" guide-more relative">see more</button></Link>
                                 </div>
                             </SwiperSlide>
 

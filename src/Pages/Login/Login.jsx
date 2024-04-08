@@ -33,6 +33,7 @@ const defaultTheme = createTheme();
 const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
+    console.log(location);
     const { SignIn, GoogleSignIn } = UseAuth();
     const { register, handleSubmit, formState: { errors } } = useForm();
     const goTo = useNavigate();

@@ -1,20 +1,17 @@
 import { useQuery } from "@tanstack/react-query";
-
 import { GiHiking } from "react-icons/gi";
-
 import { ThreeDots } from "react-loader-spinner";
 import { useParams } from "react-router-dom";
 import BookingForm from "../../Components/BookingForm";
-import TourGuides from "../../Components/TourGuides";
+// import TourGuides from "../../Components/TourGuides";
 import AxiosPublic from "../../Axios/AxiosPublic";
+import Guides from "../../Components/Guides";
 
 
 const PackageDetails = () => {
-    const param = useParams();
-    console.log(param);
-    const axiosPublic = AxiosPublic();
 
-    console.log(param);
+    const param = useParams();
+    const axiosPublic = AxiosPublic();
     const { data: Detailed = [], isFetched } = useQuery({
         queryKey: ['singlePackage'],
         queryFn: async () => {
@@ -141,11 +138,11 @@ const PackageDetails = () => {
                     </div>
 
                 </div>
-
             </div>
             <div>
                 <h1 className=" font-syne text-5xl font-bold text-center">Tour Guides</h1>
-                <TourGuides></TourGuides>
+                <Guides></Guides>
+
             </div>
         </div >
     );

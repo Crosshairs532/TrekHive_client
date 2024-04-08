@@ -6,14 +6,14 @@ import AxiosPublic from "../Axios/AxiosPublic";
 import Swal from 'sweetalert2';
 import { FacebookIcon, FacebookShareButton, InstapaperIcon, InstapaperShareButton } from 'react-share';
 import UseAuth from '../Hooks/UseAuth';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { TiArrowBackOutline } from "react-icons/ti";
 import { GrInstall } from "react-icons/gr";
 
 // import UseStories from "../Hooks/UseStories";
 
 const StoryDetails = () => {
-    const [disabled, setDisable] = useState(true);
+    const [disabled, setDisable] = useState(null);
     const navigate = useNavigate();
     const { user } = UseAuth();
     const location = useLocation();
@@ -21,7 +21,6 @@ const StoryDetails = () => {
     console.log(id);
     const axiosPublic = AxiosPublic();
     const facebookUrl = "https://www.facebook.com/zidan.tanzim";
-
     const { data: story = [], isLoading, isError } = useQuery({
         queryKey: ['touristStories'],
         queryFn: async () => {
@@ -33,6 +32,15 @@ const StoryDetails = () => {
             }
         },
     });
+    useEffect(() => {
+        if (user) {
+            setDisable(false)
+
+        }
+        else {
+            setDisable(true)
+        }
+    }, [user])
 
     if (isLoading) {
         return <Loaading />;
@@ -40,29 +48,12 @@ const StoryDetails = () => {
     if (isError) {
         return <div>Error loading stories</div>;
     }
-    console.log(story);
+    // console.log(story);
 
-    // const handleShare = (value) => {
-    //     if (value === 'facebook') {
-    //         if (!user) {
-    //             Swal.fire({
-    //                 title: "Your are not logged in",
-    //                 showDenyButton: true,
-    //                 confirmButtonText: "login?",
-    //                 denyButtonText: `Not Now`
-    //             }).then(async (result) => {
-    //                 if (result.isConfirmed) {
-    //                     navigate()
-
-    //                 }
-    //             });
-    //         }
-    //     }
-    // };
 
 
     return (
-        <div className=" pt-[200px] min-h-screen border-2 w-[80%] mx-auto ">
+        <div className=" pt-[150px] min-h-screen border-2 w-[80%] mx-auto ">
 
             <div className=" flex gap-y-4 lg:gap-x-4 lg:flex-row flex-col absolute bottom-[20%] share_button">
                 {/* <button className=" w-[32px] h-[32px] rounded-full" onClick={() => handleShare('facebook')}> */}
@@ -82,7 +73,7 @@ const StoryDetails = () => {
                     <img className=" w-full h-full" src={story[0]?.profileImage} alt="" />
                 </div>
                 <h1 className=" text-center text-4xl font-syne font-semibold">Hi This is <span className=" text-orange-800">{story[0]?.storyGiverName}</span></h1>
-                <p className=" font-light text-justify">
+                <p className=" font-light overflow-clip text-wrap">
                     {
                         story[0]?.tourExperience
                     }

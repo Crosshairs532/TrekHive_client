@@ -12,29 +12,40 @@ import UseAuth from '../Hooks/UseAuth';
 import Swal from 'sweetalert2'
 import { useLocation, useNavigate } from "react-router-dom";
 import moment from 'moment'
+import { useQuery } from "@tanstack/react-query";
+import AxiosPublic from "../Axios/AxiosPublic";
+// import { LoadingOverlay } from "@mantine/core";
+// import { useDisclosure } from '@mantine/hooks';
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
 const BookingForm = ({ price, packageName }) => {
+    // const [visible, { toggle }] = useDisclosure(false);
     const [date, setDate] = useState('');
     const todayDate = moment().format('YYYY-MM-DD');
     console.log(todayDate);
     const GoTo = useNavigate();
+    const axiosPublic = AxiosPublic();
     const location = useLocation();
     const { register, control, handleSubmit, formState: { errors } } = useForm();
     const { user } = UseAuth();
     const [state, setState] = useState('idle');
+    const { data: Guides = [] } = useQuery({
+        queryKey: ['guidesTour'],
+        queryFn: async () => {
+            const res = await axiosPublic.get('/guides');
+            return res?.data;
+        }
+    })
     const onChange = (date, dateString) => {
         setDate(dateString)
         console.log(dateString);
     };
-    console.log(user);
+    // console.log(user);
 
-    const options = [
-        { value: 'k1', label: 'k1' },
-        { value: 'k2', label: 'k2' },
-        { value: 'k3', label: 'k3' }
-    ]
+    const options = Guides.map((guide) => ({ value: guide?.name, label: guide?.name }));
+
+
     const onSubmit = async (data) => {
         if (!user?.email) {
             return Swal.fire({
@@ -52,7 +63,6 @@ const BookingForm = ({ price, packageName }) => {
 
             }).then((result) => {
                 if (result.isConfirmed) {
-
                     return GoTo('/login', { state: location.pathname, replace: true });
                 }
             });
@@ -65,9 +75,9 @@ const BookingForm = ({ price, packageName }) => {
             }
         })
         const photo = res.data.data.display_url;
-        console.log(photo);
+        // console.log(photo);
         const Booking = { TouristName: data.TouristName, TouristEmail: data.TouristEmail, guide: data.guide.value, TouristImage: photo, Date: date ? date : todayDate, TourPrice: data.Price, status: 'In Review', TourPackage: packageName, TourGuide: data.guide.value }
-        console.log(Booking);
+        // console.log(Booking);
         if (photo) {
             const res = await axios.post('http://localhost:4000/booking', Booking);
             if (res.data.insertedId) {
@@ -77,17 +87,17 @@ const BookingForm = ({ price, packageName }) => {
             }
         }
         toast.success('Booked', { id: loading })
+
         setState('loading');
         setTimeout(() => {
             setState('success');
         }, 2000);
-
-
     };
 
     return (
         <>
-            <div className=" ">
+            <div className=" relative">
+                {/* <LoadingOverlay visible={visible} zIndex={1000} overlayProps={{ radius: "sm", blur: 2 }} /> */}
                 <h1 className=" text-3xl text-center font-syne font-bold">Booking Form</h1>
                 <form onSubmit={handleSubmit(onSubmit)} className=" p-4 space-y-6 ">
                     <Input label="Tourist Name" {...register("TouristName", { required: true })} />
@@ -116,9 +126,8 @@ const BookingForm = ({ price, packageName }) => {
                     </div>
                     {/* <label htmlFor="image-input" className={`duration-150 flex items-center gap-x-2 ${selectedimg && 'select'}`}> <FaImage size={40} />{selectedimg ? 'Uploaded' : "Upload You image"}</label> */}
                     <input {...register('TouristImage', { required: true })} type="file" id="image-input" className=" image-input file-input file-input-bordered max-w-xs " />
-                    {/* <button type="submit" className=" font-syne ">Book Now</button> */}
+                    {/* <button type="submit" className=" font-syne " onClick={toggle}>Book Now</button> */}
                     <ReactiveButton style={{ borderRadius: '20px', boxShadow: ' 0px 10px 20px grey' }} type="submit" buttonState={state} idleText={'Book Now'} loadingText={<>
-
                         Booking</>} successText={'Booked'} errorText={' Oops!try again'} ></ReactiveButton>
 
 

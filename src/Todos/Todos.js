@@ -1,8 +1,8 @@
 /*
-1. make guide profile  at the time of register. 
-2. add them with the normal users using aggregate. 
-3. show them on the  home page 
-4. 
+ make a review
+show the review on the guide profile page(include the user name , rating and comment )
+ make change the overall rating of the guide
+
 
 
 */
