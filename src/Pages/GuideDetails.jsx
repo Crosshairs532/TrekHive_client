@@ -10,13 +10,13 @@ import { useState } from "react";
 import ReviewModal from "../Components/Guide_related/ReviewModal";
 
 const GuideDetails = () => {
-    const [modalOn, SetModalOn] = useState({});
-    const [review, SetReview] = useState({});
+    // const [modalOn, SetModalOn] = useState({});
+    // const [review, SetReview] = useState({});
     const { id } = useParams();
     const axiosPublic = AxiosPublic();
     const { user } = UseAuth();
-    const navigate = useNavigate();
-    const location = useLocation();
+    // const navigate = useNavigate();
+    // const location = useLocation();
     const { data: Guides = [], isFetched } = useQuery({
         queryKey: ['guidesDetails'],
         queryFn: async () => {
@@ -29,15 +29,15 @@ const GuideDetails = () => {
         return <Loaading></Loaading>
 
     }
-    const handleReview = () => {
-        if (!user) {
-            navigate('/login', { state: location.pathname })
-        }
-        else {
-            SetModalOn({ target: "animated-dialog", ripple: "true" })
-        }
+    // const handleReview = () => {
+    //     if (!user) {
+    //         navigate('/login', { state: location.pathname })
+    //     }
+    //     else {
+    //         SetModalOn({ target: "animated-dialog", ripple: "true" })
+    //     }
 
-    }
+    // }
     return (
         <div className=" max-w-6xl min-h-screen  mx-auto pt-[140px] pb-[100px] px-3 space-y-10">
             <div className=" flex flex-col bg-blue-gray-100 px-4 rounded-xl py-4 lg:flex-row justify-between items-center">
@@ -130,10 +130,10 @@ const GuideDetails = () => {
                 </div>
 
             </div>
-            <div className=" w-full review_comment">
-                <div className=" px-4 rounded-lg bg-blue-gray-100 h-[100px] flex items-center justify-between">
+            <div className="  w-full review_comment">
+                <div className="  z-0 px-4 rounded-lg bg-blue-gray-100 h-[100px] flex items-center justify-between">
                     <h1 className=" font-syne text-2xl font-bold ">See what other People Say</h1>
-                    <ReviewModal modalOn={modalOn} handleReview={handleReview}></ReviewModal>
+                    <ReviewModal></ReviewModal>
                 </div>
                 <div className="my-2">
                     <Review_Comment Guide_email={Guides[0]} logged_email={user?.email}></Review_Comment>

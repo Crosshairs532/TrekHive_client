@@ -547,3 +547,48 @@ label,
   -webkit-background-clip: text;
 
 }
+
+.modal_wrap {
+  z-index: 1000;
+  position: absolute;
+  background-color: #024e77;
+  animation: modal_animate 0.5s ease-in forwards;
+  width: 400px;
+  height: 300px;
+  transition: 0.5s;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+}
+
+.modal_container {
+
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99;
+  background-color: #024e7761;
+  position: fixed;
+  backdrop-filter: blur(4px);
+  transition: 0.5s;
+}
+
+/* @keyframes modal_animate {
+
+  from {
+
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  to {
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    visibility: visible;
+  }
+
+} */
