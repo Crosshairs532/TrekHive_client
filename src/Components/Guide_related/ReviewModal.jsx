@@ -14,7 +14,7 @@ const ReviewModal = () => {
             {
                 show &&
                 <div className=" modal_container  w-full h-full">
-                    <div className=" flex px-4  rounded-lg py-2 flex-col modal_wrap w-[400px]  h-[300px]">
+                    <div className=" flex px-4  rounded-lg py-2 flex-col modal_wrap ">
                         <div className=" flex-1 review">
                             <p>hello world</p>
                         </div>
